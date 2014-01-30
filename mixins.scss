@@ -1,0 +1,94 @@
+// Mixins (and prefix) based on the latest updates of http://caniuse.com/
+// and considering all the browsers with more than 0.28% of global use.
+
+@mixin animation($params) {
+    -webkit-animation: $params;
+    animation: $params;
+}
+
+@mixin transition($params) {
+    -webkit-transition: $params;
+    transition: $params;
+}
+
+@mixin transition-property($params) {
+    -webkit-transition-property: $params;
+    transition-property: $params;
+}
+ 
+@mixin transition-duration($params) {
+    -webkit-transition-duration: $params;
+    transition-duration: $params;
+}
+ 
+@mixin transition-timing-function($params) {
+    -webkit-transition-timing-function: $params;
+    transition-timing-function: $params;
+}
+ 
+@mixin transition-delay($params) {
+    -webkit-transition-delay: $params;
+    transition-delay: $params;
+}
+
+@mixin transform($params) {
+    -webkit-transform: $params;
+    -ms-transform: $params;
+    transform: $params;
+}
+
+@mixin transform-origin($params) {
+    -webkit-transform-origin: $params;
+    -ms-transform-origin: $params;
+    transform-origin: $params;
+}
+
+@mixin column-count($params) {
+    -webkit-column-count: $params;
+    -moz-column-count: $params;
+    column-count: $params;
+}
+
+@mixin column-gap($params) {
+    -webkit-column-gap: $params;
+    -moz-column-gap: $params;
+    column-count: $params;
+}
+
+@mixin no_select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin box-sizing ($params) {
+    -webkit-box-sizing: $params;
+    -moz-box-sizing: $params;
+    box-sizing: $params;
+}
+
+@mixin keyframes($params) {
+    @-webkit-keyframes #{$params} {
+        @content;
+    }
+    @keyframes #{$params} {
+        @content;
+    }
+}
+
+@mixin respond-to($media) {
+    @if $media == mobile {
+        @media only screen and (max-width: $breakpoint-small) { @content; }
+    }
+    @if $media == tablet-portrait {
+        @media only screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) and (orientation: portrait) { @content; }
+    }
+    @if $media == tablet-landscape {
+        @media only screen and (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) and (orientation: landscape) { @content; }
+    }
+    @if $media == desktop {
+        @media only screen and (min-width: $breakpoint-medium + 1) { @content; }
+    }
+}
