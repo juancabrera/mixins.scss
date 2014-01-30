@@ -78,6 +78,8 @@
     }
 }
 
+$breakpoint-small: 768px;
+$breakpoint-medium: 1024px;
 @mixin respond-to($media) {
     @if $media == mobile {
         @media only screen and (max-width: $breakpoint-small) { @content; }
